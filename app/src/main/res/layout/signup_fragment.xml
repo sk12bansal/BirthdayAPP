@@ -22,7 +22,8 @@
             android:id="@+id/spinner"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:backgroundTint="@android:color/black" />
+            android:backgroundTint="@android:color/black"
+            />
         <EditText
             android:id="@+id/mobileText"
             android:layout_width="250dp"

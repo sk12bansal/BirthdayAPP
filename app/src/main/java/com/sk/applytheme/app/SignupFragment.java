@@ -24,22 +24,27 @@ public class SignupFragment extends Fragment implements AdapterView.OnItemSelect
         // Spinner element
         Spinner spinner = (Spinner)view.findViewById(R.id.spinner);
 
+
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
-        categories.add("+91 India");
-        categories.add("+1 US");
+        categories.add("+91");
+        categories.add("+1");
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, categories);
 
         // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
+
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
+        spinner.setSelection(0);
+
 
         return view;
     }

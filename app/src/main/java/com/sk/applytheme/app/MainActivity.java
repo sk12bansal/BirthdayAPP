@@ -140,19 +140,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-   /* private void setRecylerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        RecyclerAdapter adapter = new RecyclerAdapter(this, Landscape.getData());
-        recyclerView.setAdapter(adapter);
-
-        LinearLayoutManager linearLayoutManagerVertical = new LinearLayoutManager(this);
-        linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManagerVertical);
-
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-    }*/
-
 
 
 
