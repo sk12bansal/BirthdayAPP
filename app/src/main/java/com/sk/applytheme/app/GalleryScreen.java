@@ -36,7 +36,7 @@ public class GalleryScreen extends Fragment{
         /*LinearLayoutManager linearLayoutManagerVertical = new LinearLayoutManager(getContext());
         linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManagerVertical);*/
-        GridLayoutManager mGridLayoutManager = new GridLayoutManager(getContext(), 2); // (Context context, int spanCount)
+        GridLayoutManager mGridLayoutManager = new GridLayoutManager(getContext(), 4); // (Context context, int spanCount)
          recyclerView.setLayoutManager(mGridLayoutManager);
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());

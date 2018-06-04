@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/imgtitle"
-        android:layout_width="20dp"
+        android:layout_width="30dp"
         android:layout_height="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:src="@drawable/ic_discard"
-        android:tint="@android:color/darker_gray" />
+        android:tint="@android:color/black" />
 
     <TextView
         android:id="@+id/texttitle"
@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="15sp" />
 
 </LinearLayout>
