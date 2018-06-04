@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Birthday Celebration"
+        android:layout_margin="25dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We are the leading Event Management group known as BIRTHDAY CELEBRATION Event Planner, with a special niche for offering you the best services for all types of events. We work as Wedding Planners in INDIA, Corporate Event Planners in INDIA, Birthday Party Planners in INDIA, Plan your Social Get Together and many more events. We act as a platform for all your celebrations and occasions. We believe in delivering the best services within your budget. Our team of experts constantly upgrade the themes and prefer to use the latest decorations to add stars to your event. Our experience is worthy enough to understand your requirements and so we strive to present the best, thereby making your dream event come true and be the talk of the TOWN"
+        android:textColor="@android:color/black"
+        android:gravity="fill_horizontal"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some of our working areas as Event Planners in INDIA are :-"
+        android:layout_margin="25dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <ListView
+        android:id="@+id/working_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:entries="@array/working_area">
+    </ListView>
+</LinearLayout>

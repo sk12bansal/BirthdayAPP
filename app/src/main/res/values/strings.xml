@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ApplyTheme</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string-array name="working_area">
+        <item>\u2022 Birthday event</item>
+        <item>\u2022 Special events and Launch events</item>
+        <item>\u2022 Awards ceremony</item>
+        <item>\u2022 Conferences and Corporate Trade Shows</item>
+        <item>\u2022 Seminars and Sales Meeting</item>
+        <item>\u2022 Brand Promotion and Award Functions</item>
+        <item>\u2022 Annual Get-Together</item>
+        <item>\u2022 Annual Days and Founder Day</item>
+        <item>\u2022 Theme Party and Wedding Ceremony</item>
+    </string-array>
+</resources>
+
+
+
