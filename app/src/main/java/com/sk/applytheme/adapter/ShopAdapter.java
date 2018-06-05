@@ -1,6 +1,7 @@
 package com.sk.applytheme.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.sk.applytheme.R;
+import com.sk.applytheme.app.CartActivity;
+import com.sk.applytheme.app.MainActivity;
 import com.sk.applytheme.model.ShopData;
 
 import java.util.List;
@@ -21,6 +25,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
 
     private List<ShopData> mData;
     private LayoutInflater mInflater;
+    private  Context context;
     public ShopAdapter(Context context, List<ShopData> data){
         this.mData=data;
         this.mInflater=LayoutInflater.from(context);
@@ -36,11 +41,30 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         Log.d(TAG,"onBindViewHolder"+position);
         ShopData currentObj=mData.get(position);
         holder.setData(currentObj,position);
+        handleOnCLick(holder,position);
 //        holder.setListener();
+    }
+
+    private void handleOnCLick(MyViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 Intent intent;
+                switch (position) {
+                    case 0:
+                        intent = new Intent(context, CartActivity.class);
+                        context.startActivity(intent);
+                    default:
+                        break;
+                }
+                //context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -60,7 +84,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
         notifyItemInserted(position);
         notifyItemRangeChanged(position,mData.size());
     }*/
-    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title,item;
         ImageView cardimg;
@@ -70,6 +94,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            context = itemView.getContext();
             title=itemView.findViewById(R.id.shopTitle);
             cardimg=itemView.findViewById(R.id.cardimg);
             item=itemView.findViewById(R.id.shopitems);
@@ -90,19 +115,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
             imgAdd.setOnClickListener(MyViewHolder.this);
         }*/
 
-        @Override
-        public void onClick(View view) {
-           /* int id=view.getId();
-            switch (id){
-                case R.id.img_row_add:
-                    addItem(position,current);
-                    break;
-                case R.id.img_row_delete:
-                    removeItem(position);
-                    break;
 
-            }*/
-        }
     }
 
 }
