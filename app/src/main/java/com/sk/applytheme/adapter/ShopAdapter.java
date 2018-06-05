@@ -48,7 +48,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
         return mData.size();
     }
 
-    public void removeItem(int position){
+    /*public void removeItem(int position){
         mData.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,mData.size());
@@ -59,7 +59,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
         mData.add(position,current);
         notifyItemInserted(position);
         notifyItemRangeChanged(position,mData.size());
-    }
+    }*/
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView title,item;
