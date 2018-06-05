@@ -1,7 +1,6 @@
 package com.sk.applytheme.adapter;
 
 import android.content.Context;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,17 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sk.applytheme.R;
-import com.sk.applytheme.model.Landscape;
+import com.sk.applytheme.model.ShopData;
 
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>{
+public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
 
-    private List<Landscape> mData;
+    private List<ShopData> mData;
     private LayoutInflater mInflater;
-    public  RecyclerAdapter(Context context, List<Landscape> data){
+    public ShopAdapter(Context context, List<ShopData> data){
         this.mData=data;
         this.mInflater=LayoutInflater.from(context);
     }
@@ -31,7 +30,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d(TAG,"onCreateViewHolder");
-        View view=mInflater.inflate(R.layout.list_item,parent,false);
+        View view=mInflater.inflate(R.layout.shop_list_item,parent,false);
         MyViewHolder holder=new MyViewHolder(view);
         return holder;
     }
@@ -39,9 +38,9 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.d(TAG,"onBindViewHolder"+position);
-        Landscape currentObj=mData.get(position);
+        ShopData currentObj=mData.get(position);
         holder.setData(currentObj,position);
-        holder.setListener();
+//        holder.setListener();
     }
 
     @Override
@@ -56,44 +55,44 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
 
     }
 
-    private void addItem(int position, Landscape current) {
+    private void addItem(int position, ShopData current) {
         mData.add(position,current);
         notifyItemInserted(position);
         notifyItemRangeChanged(position,mData.size());
     }
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView title;
-        ImageView imgThumb,imgDelete,imgAdd;
+        TextView title,item;
+        ImageView cardimg;
         int position;
-        Landscape current;
+        ShopData current;
 
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            title=itemView.findViewById(R.id.tvTitle);
-            imgThumb=itemView.findViewById(R.id.img_row);
-            imgDelete=itemView.findViewById(R.id.img_row_delete);
-            imgAdd=itemView.findViewById(R.id.img_row_add);
+            title=itemView.findViewById(R.id.shopTitle);
+            cardimg=itemView.findViewById(R.id.cardimg);
+            item=itemView.findViewById(R.id.shopitems);
         }
 
-        public void setData(Landscape current, int position) {
+        public void setData(ShopData current, int position) {
             this.title.setText(current.getTitle());
-            this.imgThumb.setImageResource(current.getImageID());
+            this.cardimg.setImageResource(current.getImageID());
+            this.item.setText(current.getItem());
             this.position=position;
             this.current=current;
 
         }
 
 
-        public void setListener() {
+      /*  public void setListener() {
             imgDelete.setOnClickListener(MyViewHolder.this);
             imgAdd.setOnClickListener(MyViewHolder.this);
-        }
+        }*/
 
         @Override
         public void onClick(View view) {
-            int id=view.getId();
+           /* int id=view.getId();
             switch (id){
                 case R.id.img_row_add:
                     addItem(position,current);
@@ -102,7 +101,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
                     removeItem(position);
                     break;
 
-            }
+            }*/
         }
     }
 

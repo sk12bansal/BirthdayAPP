@@ -8,11 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.sk.applytheme.R;
 import com.sk.applytheme.model.Gallery;
-import com.sk.applytheme.model.Landscape;
 
 import java.util.List;
 

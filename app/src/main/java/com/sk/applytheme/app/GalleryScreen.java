@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +13,7 @@ import android.view.ViewGroup;
 
 import com.sk.applytheme.R;
 import com.sk.applytheme.adapter.GalleryAdapter;
-import com.sk.applytheme.adapter.RecyclerAdapter;
 import com.sk.applytheme.model.Gallery;
-import com.sk.applytheme.model.Landscape;
 
 public class GalleryScreen extends Fragment{
 
