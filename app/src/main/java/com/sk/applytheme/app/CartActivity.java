@@ -13,37 +13,69 @@ import android.widget.TextView;
 
 import com.sk.applytheme.R;
 import com.sk.applytheme.adapter.BouquetAdapter;
+import com.sk.applytheme.adapter.CakeAdapter;
+import com.sk.applytheme.adapter.ShopAdapter;
 import com.sk.applytheme.model.Bouquet;
+import com.sk.applytheme.model.Cake;
 import com.sk.applytheme.model.ShopData;
 
 public class CartActivity extends AppCompatActivity {
-    RecyclerView mRecyclerView;
+    RecyclerView mRecyclerView1,mRecyclerView2;
     TextView cartTitle;
+    String[] shoptitles;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_main);
-        String[] shoptitles=ShopData.getTitles();
-        mRecyclerView = findViewById(R.id.Cartrecyclerview);
-        cartTitle=findViewById(R.id.cart_title);
-        cartTitle.setText(shoptitles[0]);
-        setRecylerView(mRecyclerView);
-       /* mRecyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
-    }
-    private void setRecylerView(RecyclerView mRecyclerView) {
-        BouquetAdapter adapter = new BouquetAdapter(this, Bouquet.getData());
-        mRecyclerView.setAdapter(adapter);
-
-        GridLayoutManager mGridLayoutManager = new GridLayoutManager(this,2);
-        //linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(mGridLayoutManager);
-
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        cartTitle = findViewById(R.id.cart_title);
+        shoptitles = ShopData.getTitles();
+        int id = getIntent().getExtras().getInt("pos");
+        System.out.println("suraj1  id  " + id);
+        switch (id){
+            case 0:
+                mRecyclerView1 = findViewById(R.id.Bouquetrecyclerview);
+                cartTitle.setText(shoptitles[id]);
+                setRecylerView(this, mRecyclerView1, id);
+                break;
+            case 1:
+                mRecyclerView2 = findViewById(R.id.Cakerecyclerview);
+                cartTitle.setText(shoptitles[id]);
+                System.out.println("suraj1  cakeadpter  " + id);
+                setRecylerView(this, mRecyclerView2, id);
+                break;
+        }
 
     }
+
+    public static void setRecylerView(final Context context, RecyclerView mRecyclerView, int position) {
+
+        GridLayoutManager mGridLayoutManager;
+        switch (position) {
+            case 0:
+                //System.out.println("suraj0  setRecylerView  " + position);
+                BouquetAdapter bouquetAdapter = new BouquetAdapter(context, Bouquet.getData());
+                mRecyclerView.setAdapter(bouquetAdapter);
+
+                mGridLayoutManager = new GridLayoutManager(context, 2);
+                //linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
+                mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+                mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                break;
+            case 1:
+                System.out.println("suraj1  cakeRecylerView  " + position);
+                CakeAdapter cakeAdapter = new CakeAdapter(context, Cake.getData());
+                mRecyclerView.setAdapter(cakeAdapter);
+
+                mGridLayoutManager = new GridLayoutManager(context, 2);
+                //linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
+                mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+                mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                break;
+        }
+
+    }
+    
 }

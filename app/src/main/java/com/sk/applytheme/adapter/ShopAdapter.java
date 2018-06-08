@@ -26,6 +26,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
     private List<ShopData> mData;
     private LayoutInflater mInflater;
     private  Context context;
+    RecyclerView mRecyclerView;
+
     public ShopAdapter(Context context, List<ShopData> data){
         this.mData=data;
         this.mInflater=LayoutInflater.from(context);
@@ -49,19 +51,38 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
 //        holder.setListener();
     }
 
-    private void handleOnCLick(MyViewHolder holder, final int position) {
+
+    public  void handleOnCLick(final MyViewHolder holder, final int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 Intent intent;
+                Intent intent;
+                int id;
                 switch (position) {
                     case 0:
+                         //id =(int) getItemId(position);
+                        System.out.println("suraj0  handleOnCLick  "+position);
+                        System.out.println("suraj0  loop  " + position);
+                        //CartActivity.setCartTitle(context,position);
+                       // CartActivity.startCartActivity(context,position);
                         intent = new Intent(context, CartActivity.class);
+                        intent.putExtra("pos", position);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
-                    default:
+                        break;
+                    case 1:
+                        //id =(int) getItemId(position);
+                       // System.out.println("suraj1  shopadapter  " + id);
+                        System.out.println("suraj0  handleOnCLick  "+position);
+                        System.out.println("suraj0  loop  " + position);
+                        //CartActivity.setCartTitle(context,position);
+                        //CartActivity.startCartActivity(context,position);
+                        intent = new Intent(context, CartActivity.class);
+                        intent.putExtra("pos", position);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                         break;
                 }
-                //context.startActivity(intent);
 
             }
         });
@@ -90,6 +111,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
         ImageView cardimg;
         int position;
         ShopData current;
+
+
 
 
         public MyViewHolder(View itemView) {

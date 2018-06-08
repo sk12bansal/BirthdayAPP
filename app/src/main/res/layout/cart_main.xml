@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/gradient">
 
     <TextView
         android:id="@+id/cart_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
-        android:layout_gravity="center"
         android:text="ShopItem"
         android:textColor="#016e01"
         android:textSize="35sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/Cartrecyclerview"
+        android:id="@+id/Cakerecyclerview"
+        android:layout_below="@+id/cart_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Bouquetrecyclerview"
+        android:layout_below="@+id/cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+
+
+
+</RelativeLayout>
