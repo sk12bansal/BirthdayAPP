@@ -60,7 +60,7 @@
 
         <fragment
             android:id="@+id/drawerfrag"
-            android:name="com.sk.applytheme.app.NavigationDrawerFragment"
+            android:name="com.sk.BirthDayManager.app.NavigationDrawerFragment"
             android:layout_width="280dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"

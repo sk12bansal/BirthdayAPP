@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">BirthDayMania</string>
+    <string name="app_name">BirthDayManager</string>
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    
+    <string name="facebook_app_id">1029175183900177</string>
 
     <string-array name="working_area">
         <item>\u2022 Birthday event</item>
