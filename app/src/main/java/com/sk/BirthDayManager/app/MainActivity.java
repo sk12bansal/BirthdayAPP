@@ -1,5 +1,6 @@
 package com.sk.BirthDayManager.app;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import com.sk.BirthDayManager.R;
 public class MainActivity extends AppCompatActivity {
     Fragment prevfragment=null;
     Toolbar toolbar;
+    FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpTollbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("BirthDayMania");
+        toolbar.setTitle("BirthDayManager");
         toolbar.inflateMenu(R.menu.menu_main);
     }
 
@@ -111,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         hidePreviousScreen(fragment);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(id, fragment, fragment.toString());
-        ft.addToBackStack(fragment.getTag());
         ft.commit();
     }
 

@@ -2,6 +2,7 @@ package com.sk.BirthDayManager.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +15,17 @@ import android.widget.TextView;
 import com.sk.BirthDayManager.R;
 import com.sk.BirthDayManager.adapter.BouquetAdapter;
 import com.sk.BirthDayManager.adapter.CakeAdapter;
+import com.sk.BirthDayManager.adapter.ChocolateAdapter;
+import com.sk.BirthDayManager.adapter.PackageAdapter;
 import com.sk.BirthDayManager.adapter.ShopAdapter;
 import com.sk.BirthDayManager.model.Bouquet;
 import com.sk.BirthDayManager.model.Cake;
+import com.sk.BirthDayManager.model.Chocolate;
+import com.sk.BirthDayManager.model.Packages;
 import com.sk.BirthDayManager.model.ShopData;
 
 public class CartActivity extends AppCompatActivity {
-    RecyclerView mRecyclerView1,mRecyclerView2;
+    RecyclerView mRecyclerView;
     TextView cartTitle;
     String[] shoptitles;
 
@@ -31,18 +36,26 @@ public class CartActivity extends AppCompatActivity {
         cartTitle = findViewById(R.id.cart_title);
         shoptitles = ShopData.getTitles();
         int id = getIntent().getExtras().getInt("pos");
-        System.out.println("suraj1  id  " + id);
-        switch (id){
+        switch (id) {
             case 0:
-                mRecyclerView1 = findViewById(R.id.Bouquetrecyclerview);
+                mRecyclerView = findViewById(R.id.Bouquetrecyclerview);
                 cartTitle.setText(shoptitles[id]);
-                setRecylerView(this, mRecyclerView1, id);
+                setRecylerView(this, mRecyclerView, id);
                 break;
             case 1:
-                mRecyclerView2 = findViewById(R.id.Cakerecyclerview);
+                mRecyclerView = findViewById(R.id.Cakerecyclerview);
                 cartTitle.setText(shoptitles[id]);
-                System.out.println("suraj1  cakeadpter  " + id);
-                setRecylerView(this, mRecyclerView2, id);
+                setRecylerView(this, mRecyclerView, id);
+                break;
+            case 2:
+                mRecyclerView = findViewById(R.id.Chocolaterecyclerview);
+                cartTitle.setText(shoptitles[id]);
+                setRecylerView(this, mRecyclerView, id);
+                break;
+            case 3:
+                mRecyclerView = findViewById(R.id.Packagesrecyclerview);
+                cartTitle.setText(shoptitles[id]);
+                setRecylerView(this, mRecyclerView, id);
                 break;
         }
 
@@ -53,20 +66,36 @@ public class CartActivity extends AppCompatActivity {
         GridLayoutManager mGridLayoutManager;
         switch (position) {
             case 0:
-                //System.out.println("suraj0  setRecylerView  " + position);
                 BouquetAdapter bouquetAdapter = new BouquetAdapter(context, Bouquet.getData());
                 mRecyclerView.setAdapter(bouquetAdapter);
 
                 mGridLayoutManager = new GridLayoutManager(context, 2);
-                //linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
                 mRecyclerView.setLayoutManager(mGridLayoutManager);
 
                 mRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 break;
             case 1:
-                System.out.println("suraj1  cakeRecylerView  " + position);
                 CakeAdapter cakeAdapter = new CakeAdapter(context, Cake.getData());
                 mRecyclerView.setAdapter(cakeAdapter);
+
+                mGridLayoutManager = new GridLayoutManager(context, 2);
+                mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+                mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                break;
+            case 2:
+
+                ChocolateAdapter chocolateAdapter = new ChocolateAdapter(context, Chocolate.getData());
+                mRecyclerView.setAdapter(chocolateAdapter);
+
+                mGridLayoutManager = new GridLayoutManager(context, 2);
+                mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+                mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                break;
+            case 3:
+                PackageAdapter packageAdapter = new PackageAdapter(context, Packages.getData());
+                mRecyclerView.setAdapter(packageAdapter);
 
                 mGridLayoutManager = new GridLayoutManager(context, 2);
                 //linearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);

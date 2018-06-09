@@ -26,7 +26,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
     private List<ShopData> mData;
     private LayoutInflater mInflater;
     private  Context context;
-    RecyclerView mRecyclerView;
 
     public ShopAdapter(Context context, List<ShopData> data){
         this.mData=data;
@@ -60,23 +59,32 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.MyViewHolder>{
                 int id;
                 switch (position) {
                     case 0:
-                         //id =(int) getItemId(position);
                         System.out.println("suraj0  handleOnCLick  "+position);
                         System.out.println("suraj0  loop  " + position);
-                        //CartActivity.setCartTitle(context,position);
-                       // CartActivity.startCartActivity(context,position);
                         intent = new Intent(context, CartActivity.class);
                         intent.putExtra("pos", position);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                         break;
                     case 1:
-                        //id =(int) getItemId(position);
-                       // System.out.println("suraj1  shopadapter  " + id);
                         System.out.println("suraj0  handleOnCLick  "+position);
                         System.out.println("suraj0  loop  " + position);
-                        //CartActivity.setCartTitle(context,position);
-                        //CartActivity.startCartActivity(context,position);
+                        intent = new Intent(context, CartActivity.class);
+                        intent.putExtra("pos", position);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
+                    case 2:
+                        System.out.println("suraj0  handleOnCLick  "+position);
+                        System.out.println("suraj0  loop  " + position);
+                        intent = new Intent(context, CartActivity.class);
+                        intent.putExtra("pos", position);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        break;
+                    case 3:
+                        System.out.println("suraj0  handleOnCLick  "+position);
+                        System.out.println("suraj0  loop  " + position);
                         intent = new Intent(context, CartActivity.class);
                         intent.putExtra("pos", position);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -26,6 +26,17 @@
         android:layout_below="@+id/cart_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Packagesrecyclerview"
+        android:layout_below="@+id/cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Chocolaterecyclerview"
+        android:layout_below="@+id/cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 

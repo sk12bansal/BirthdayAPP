@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import com.sk.BirthDayManager.R;
 import com.sk.BirthDayManager.model.Gallery;
@@ -30,6 +31,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
 
         View view=mInflater.inflate(R.layout.gallery_list_item,parent,false);
         MyViewHolder myViewHolder=new MyViewHolder(view);
+
+       /* Toolbar toolbar;
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("BirthDayManager");
+        toolbar.inflateMenu(R.menu.menu_main);*/
         return myViewHolder;
 
     }
@@ -40,8 +46,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         Log.d(TAG,"onBindViewHolder"+position);
         Gallery currentObj=mData.get(position);
         holder.setData(currentObj,position);
+       // holder.setListener();
     }
 
+    private void removeItem(int position, Gallery current) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,mData.size());
+    }
 
     @Override
     public int getItemCount() {
@@ -54,6 +66,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         int position;
         Gallery current;
 
+
+        /*public void setListener() {
+            imgDelete.setOnLongClickListener(MyViewHolder.this);
+        }*/
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -71,5 +87,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         public void onClick(View view) {
 
         }
+
+
     }
 }
